@@ -28,37 +28,44 @@ const mockAvatars = [
 export const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
   const completedSubtasks = task.subtasks.filter((s) => s.completed).length;
   const totalSubtasks = task.subtasks.length;
-  
-  const isDueSoon = task.dueDate && isAfter(new Date(task.dueDate), new Date()) && isBefore(new Date(task.dueDate), addDays(new Date(), 3));
-  const isOverdue = task.dueDate && isBefore(new Date(task.dueDate), new Date());
+
+  const isDueSoon =
+    task.dueDate &&
+    isAfter(new Date(task.dueDate), new Date()) &&
+    isBefore(new Date(task.dueDate), addDays(new Date(), 3));
+  const isOverdue =
+    task.dueDate && isBefore(new Date(task.dueDate), new Date());
 
   // Random comment and file counts for visual purposes
   const commentCount = Math.floor(Math.random() * 15) + 1;
   const fileCount = Math.floor(Math.random() * 3);
 
   return (
-    <Card 
+    <Card
       className="group cursor-pointer transition-all hover:shadow-lg border-border bg-card"
       onClick={() => onEdit(task)}
     >
       <div className="p-4 space-y-3">
         {/* Priority Badge and Menu */}
         <div className="flex items-start justify-between gap-2">
-          <Badge 
+          <Badge
             variant="outline"
             className={cn(
               "text-xs font-medium px-2 py-0.5",
-              task.priority === "high" && "bg-red-50 text-red-600 border-red-200",
-              task.priority === "medium" && "bg-yellow-50 text-yellow-700 border-yellow-200",
-              task.priority === "low" && "bg-orange-50 text-orange-600 border-orange-200"
+              task.priority === "high" &&
+                "bg-red-50 text-red-600 border-red-200",
+              task.priority === "medium" &&
+                "bg-yellow-50 text-yellow-700 border-yellow-200",
+              task.priority === "low" &&
+                "bg-orange-50 text-orange-600 border-orange-200"
             )}
           >
             {task.priority}
           </Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="icon"
                 className="h-6 w-6 -mt-1 text-muted-foreground hover:text-foreground"
               >
@@ -66,13 +73,15 @@ export const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={(e) => {
-                e.stopPropagation();
-                onEdit(task);
-              }}>
+              <DropdownMenuItem
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onEdit(task);
+                }}
+              >
                 Edit Task
               </DropdownMenuItem>
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={(e) => {
                   e.stopPropagation();
                   onDelete(task.id);
@@ -102,8 +111,15 @@ export const TaskCard = ({ task, onEdit, onDelete }: TaskCardProps) => {
           {/* Avatars */}
           <div className="flex -space-x-2">
             {mockAvatars.map((avatar, i) => (
-              <div key={i} className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-gray-200">
-                <img src={avatar} alt="" className="w-full h-full object-cover" />
+              <div
+                key={i}
+                className="w-6 h-6 rounded-full border-2 border-white overflow-hidden bg-gray-200"
+              >
+                <img
+                  src={avatar}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>

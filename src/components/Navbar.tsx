@@ -1,4 +1,9 @@
-import { Search, CalendarToday, Message, Notifications } from "@mui/icons-material";
+import {
+  Search,
+  CalendarToday,
+  Message,
+  Notifications,
+} from "@mui/icons-material";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -8,11 +13,18 @@ interface NavbarProps {
   onSearchChange?: (value: string) => void;
 }
 
-export const Navbar = ({ className, searchValue = "", onSearchChange }: NavbarProps) => {
+export const Navbar = ({
+  className,
+  searchValue = "",
+  onSearchChange,
+}: NavbarProps) => {
   const { user } = useAuth();
-  
+
   return (
-    <nav className={`border-b border-border px-6 py-3 ${className}`} style={{ backgroundColor: '#F5F5F5' }}>
+    <nav
+      className={`border-b border-border px-6 py-3 ${className}`}
+      style={{ backgroundColor: "#FFFFFF" }}
+    >
       <div className="flex items-center justify-between gap-4">
         {/* Search Bar */}
         <div className="relative w-96">
@@ -20,7 +32,8 @@ export const Navbar = ({ className, searchValue = "", onSearchChange }: NavbarPr
           <Input
             type="search"
             placeholder="Search for anything..."
-            className="pl-10 bg-background border-border"
+            className="pl-10 border-border" // removed bg-background
+            style={{ backgroundColor: "#F5F5F5" }} // search bar light gray
             value={searchValue}
             onChange={(e) => onSearchChange?.(e.target.value)}
           />
@@ -45,17 +58,19 @@ export const Navbar = ({ className, searchValue = "", onSearchChange }: NavbarPr
           </button>
 
           {/* Profile Section */}
-          <div className="flex items-center gap-2 ml-2 pl-3 border-l border-border">
+          <div className="flex items-center gap-2 ml-2 pl-3">
             <div>
               <p className="text-sm font-medium text-foreground text-right">
-                {user?.user_metadata?.full_name || user?.email || 'User'}
+                {user?.user_metadata?.full_name || user?.email || "User"}
               </p>
               <p className="text-xs text-muted-foreground text-right">
-                {user?.email || ''}
+                {user?.email || ""}
               </p>
             </div>
             <div className="w-10 h-10 rounded-full overflow-hidden bg-primary flex items-center justify-center text-white font-semibold">
-              {(user?.user_metadata?.full_name || user?.email || 'U').charAt(0).toUpperCase()}
+              {(user?.user_metadata?.full_name || user?.email || "U")
+                .charAt(0)
+                .toUpperCase()}
             </div>
           </div>
         </div>

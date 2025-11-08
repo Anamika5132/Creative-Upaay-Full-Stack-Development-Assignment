@@ -32,7 +32,7 @@ export const DashboardFilters = ({
         <Filter className="h-4 w-4 text-muted-foreground" />
         <Select value={priority} onValueChange={(value) => onPriorityChange(value as TaskPriority | "all")}>
           <SelectTrigger className="w-[150px]">
-            <SelectValue placeholder="Priority" />
+            <SelectValue placeholder="Filter" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Priorities</SelectItem>
