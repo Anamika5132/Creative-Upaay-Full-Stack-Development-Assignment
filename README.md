@@ -43,7 +43,7 @@ Upaay-Dashboard/
 ---
 
 ## 🎥 Video Walkthrough
-
+[Download and watch the video](https://drive.google.com/file/d/1ABF4xT_5DycaRHIqDX2uZ7hc4AevBwtz/view?usp=sharing)
 
 ---
 
