@@ -1,7 +1,7 @@
 # Creative-Upaay-Full-Stack-Development-Assignment
 
 ## Introduction
-This Dashboard is a **web-based task and project management interface** designed to help users manage projects, tasks, and team members efficiently. It features dynamic filtering, task categorization, and interactive UI components.
+This Dashboard is a web-based task and project management interface that helps users organize and track projects, tasks, and team activities efficiently. It features dynamic filtering, task categorization, interactive UI components, and real-time updates, providing an intuitive and responsive platform to streamline project management and collaboration.
 
 ---
 
